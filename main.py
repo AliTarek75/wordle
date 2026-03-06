@@ -23,7 +23,6 @@ def pattern_code_to_str(code):
     while (code > 0):
         str_list.append(chrs[int(code % 3)])
         code //= 3
-        print(code)
 
     while (len(str_list) < 5):
         str_list.append("r")
@@ -54,7 +53,7 @@ def best_guess(Matrix, C):
     entropies = [row_entropy(np.array(row)) for row in Matrix[:, C]]
 
     best_guesses = np.argsort(entropies)[::-1][:10]
-    best_entropies = np.sort(entropies)[::-1][10:]
+    best_entropies = np.sort(entropies)[::-1][:10]
 
     return [best_guesses, best_entropies]
 
